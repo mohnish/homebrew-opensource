@@ -9,11 +9,20 @@ Silicon or Intel. Go is not required.
 ## Installation
 
 After the first stable binary release has published `Casks/opensource.rb` to
-this repository, install with:
+this repository, tap it, trust the cask, and install:
 
 ```bash
+brew tap mohnish/opensource
+brew trust --cask mohnish/opensource/opensource
 brew install --cask mohnish/opensource/opensource
 ```
+
+The tap and trust commands are a one-time setup. `brew trust --cask` permits
+Homebrew to load this specific cask for installation, audits, and upgrades.
+Homebrew 6 and newer require explicit trust for third-party taps or individual
+items. Installing by the fully qualified cask name also grants trust
+automatically; the commands above make the trust step explicit. See
+[Homebrew's tap trust documentation](https://docs.brew.sh/Tap-Trust).
 
 Check the installed version and save your name and email:
 
@@ -45,6 +54,12 @@ brew uninstall --cask opensource
 ```
 
 Your saved name and email in `~/.osrc` are retained.
+
+To remove the cask's trust after uninstalling:
+
+```bash
+brew untrust --cask mohnish/opensource/opensource
+```
 
 ## Moving from the Homebrew formula
 
